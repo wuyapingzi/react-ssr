@@ -2,15 +2,27 @@
 import React from 'react'
 import {renderToString} from 'react-dom/server'
 import express from 'express'
+import {StaticRouter} from 'react-router-dom'
+import {Provider} from 'react-redux'
 
 import App from '../src/App.js'
+import store from '../src/store/store'
 
 const app = express()
-app.use(express.static('public'))
+app.use(express.static('public')) // 设置加载静态资源的目录为public
 
-app.get('/', (req, res) => {
+// 监听所有路由，这样不会在浏览器报404错误
+app.get('*', (req, res) => {
   // 把react组件解析成html
-  const content = renderToString(App)
+  const content = renderToString(
+    // 使用Provider向页面中注入store
+    <Provider store={store}>
+      <StaticRouter location={req.url}>
+        {App}
+      </StaticRouter>
+    </Provider>
+
+  )
   // 字符串模版
   res.send(`
   <html>

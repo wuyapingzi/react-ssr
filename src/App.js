@@ -1,15 +1,16 @@
+/**
+ * 入口文件，根据路由渲染组件
+ */
+
 import React, {useState} from 'react'
+import {Route} from 'react-router-dom'
 
-const App = (props) => {
-  const [count, setCount] = useState(1)
-  return (
-    <div>
-      <h1>hello {props.title} ! wuyaping {count}</h1>
-      <button
-        onClick={() => setCount(count + 1)}
-      >累加</button>
-    </div>
+import Index from './container/index'
+import About from './container/about'
+
+export default (
+  <div>
+    <Route path="/" exact component={Index}></Route>
+    <Route path="/about" exact component={About}></Route>
+  </div>
   )
-}
-
-export default <App title='开课吧' />
