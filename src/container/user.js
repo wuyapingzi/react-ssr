@@ -6,7 +6,11 @@ const User = (props) => {
   console.log('props.userinfo--=====', props.userinfo)
   return (
     <div>
-      <h1>hello ! {props.userinfo.name},你们最棒的人是{props.userinfo.best}</h1>
+      {
+        props.userinfo && Object.keys(props.userinfo).length > 0 && (
+          <h1>hello ! {props.userinfo.name},你们最棒的人是{props.userinfo.best}</h1>
+        )
+      }
     </div>
   )
 }
