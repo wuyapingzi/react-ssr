@@ -19,6 +19,19 @@ app.get('/api/course/list', (req,res) => {
     ]
   })
 })
+
+app.get('/api/user/info', (req,res) => {
+  res.header('Access-Control-Allow-Origin', '*')
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE')
+  res.header('Content-Type', 'application/json;charset=utf-8')
+  res.json({
+    code: 0,
+    data: {
+      name: '开课吧',
+      best: '平平平子'
+    }
+  })
+})
 app.listen(9090, () => {
   console.log('mock 启动完毕')
 })
