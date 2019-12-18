@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDom from 'react-dom'
-import {BrowserRouter, Route} from 'react-router-dom'
-import {Provider} from 'react-redux'
+import { BrowserRouter, Route } from 'react-router-dom'
+import { Provider } from 'react-redux'
 
 import Routes from '../src/App.js'
-import {getClientStore} from '../src/store/store'
+import { getClientStore } from '../src/store/store'
 import Header from '../src/component/Header'
 
 const Page = (
@@ -13,7 +13,9 @@ const Page = (
     {/* 客户端使用 BrowserRouter */}
     <BrowserRouter>
       <Header />
-      {Routes.map(route => <Route {...route}></Route>)}
+      {Routes.map((route) => (
+        <Route {...route}></Route>
+      ))}
     </BrowserRouter>
   </Provider>
 )

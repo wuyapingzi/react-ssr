@@ -5,6 +5,7 @@ import {getIndexList} from '../store/index'
 const Index = (props) => {
   const [count, setCount] = useState(1)
   useEffect(() => {
+    // 根绝是否有初始数据来判断是否应该再客户端请求数据
     if (!props.list.length){
       props.getIndexList()
     }
