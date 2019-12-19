@@ -2,7 +2,7 @@
 import React from 'react'
 import { renderToString } from 'react-dom/server'
 import express from 'express'
-import { StaticRouter, matchPath, Route } from 'react-router-dom'
+import { StaticRouter, matchPath, Route, Switch } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import chalk from 'chalk'
 import proxy from 'http-proxy-middleware'
@@ -15,10 +15,13 @@ const app = express()
 app.use(express.static('public')) // 设置加载静态资源的目录为public
 // 使用http-proxy-middleware 插件 解决跨域
 // 客户端来的api开头的请求
-app.use('/api', proxy({
-  target: 'http://localhost:9090',
-  changeOrigin: true
-}))
+app.use(
+  '/api',
+  proxy({
+    target: 'http://localhost:9090',
+    changeOrigin: true
+  })
+)
 
 const store = getServerStore()
 
@@ -53,17 +56,30 @@ app.get('*', (req, res) => {
   // 等待所有的网络请求结束后再渲染
   Promise.all(promises)
     .then(() => {
+      // This context object contains the results of the render
+      let context = {}
       const content = renderToString(
         // 使用Provider向页面中注入store
         <Provider store={store}>
-          <StaticRouter location={req.url}>
+          <StaticRouter location={req.url} context={context}>
             <Header />
-            {Routes.map((route) => (
-              <Route {...route}></Route>
-            ))}
+            <Switch>
+              {Routes.map((route) => (
+                <Route {...route}></Route>
+              ))}
+            </Switch>
           </StaticRouter>
         </Provider>
       )
+
+      console.log('context====', context)
+      if (context.statuscode) {
+        // 做状态切换和页面跳转
+        res.status(context.statuscode)
+      }
+      if (context.action === 'REPLACE') {
+        res.redirect(301, context.url)
+      }
       // 字符串模版
       res.send(`
   <html>

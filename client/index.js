@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDom from 'react-dom'
-import { BrowserRouter, Route } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { Provider } from 'react-redux'
 
 import Routes from '../src/App.js'
@@ -13,9 +13,11 @@ const Page = (
     {/* 客户端使用 BrowserRouter */}
     <BrowserRouter>
       <Header />
-      {Routes.map((route) => (
-        <Route {...route}></Route>
-      ))}
+      <Switch>
+        {Routes.map((route) => (
+          <Route {...route}></Route>
+        ))}
+      </Switch>
     </BrowserRouter>
   </Provider>
 )
