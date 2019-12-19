@@ -1,11 +1,13 @@
 import axios from 'axios'
 
-let config = {
-  baseURL: 'http://localhost:9090'
-}
-const axiosInstance = axios.create(config)
+export const serverAxios = axios.create({
+  baseURL: 'http://localhost:9090/'
+})
+export const clientAxios = axios.create({
+  baseURL: '/'
+})
 
-axiosInstance.interceptors.response.use(
+serverAxios.interceptors.response.use(
   (resp) => {
     const res =resp.data
     return res
@@ -15,5 +17,13 @@ axiosInstance.interceptors.response.use(
     return Promise.reject(err)
   }
 )
-
-export default axiosInstance
+clientAxios.interceptors.response.use(
+  (resp) => {
+    const res =resp.data
+    return res
+  },
+  (err) => {
+    console.error(err)
+    return Promise.reject(err)
+  }
+)

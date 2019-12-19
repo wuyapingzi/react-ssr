@@ -9,6 +9,8 @@ import Index from './container/index'
 import About from './container/about'
 import User from './container/user'
 
+import './App.css'
+
 // export default (
 //   <div>
 //     <Route path="/" exact component={Index}></Route>
@@ -19,7 +21,7 @@ export default [
   {
     path: '/',
     component: Index,
-    // exact: true,
+    exact: true,
     key: 'index'
   },
   {

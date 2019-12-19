@@ -14,6 +14,7 @@ import Header from '../src/component/Header'
 const app = express()
 app.use(express.static('public')) // 设置加载静态资源的目录为public
 // 使用http-proxy-middleware 插件 解决跨域
+// 客户端来的api开头的请求
 app.use('/api', proxy({
   target: 'http://localhost:9090',
   changeOrigin: true
@@ -69,6 +70,7 @@ app.get('*', (req, res) => {
     <head>
       <meta charset="utf-8" />
       <title>react ssr</title>
+      <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     </head>
     <body>
       <div id="root">${content}</div>
