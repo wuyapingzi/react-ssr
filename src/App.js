@@ -11,7 +11,7 @@ import User from './container/user'
 import Notfound from './container/notfound'
 import Login from './container/login'
 
-import './App.css'
+// import './App.css'
 
 // export default (
 //   <div>

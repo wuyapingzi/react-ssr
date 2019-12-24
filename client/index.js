@@ -22,5 +22,11 @@ const Page = (
   </Provider>
 )
 
-// 将页面注入rout dom节点中
-ReactDom.hydrate(Page, document.getElementById('root'))
+if (window.__context) {
+  // 将页面注入rout dom节点中
+  ReactDom.hydrate(Page, document.getElementById('root'))
+} else {
+  // 将页面注入rout dom节点中
+  ReactDom.render(Page, document.getElementById('root'))
+}
+
