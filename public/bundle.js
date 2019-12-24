@@ -444,14 +444,14 @@ eval("\n\nfunction _typeof(obj) { if (typeof Symbol === \"function\" && typeof S
 
 /***/ }),
 
-/***/ "./node_modules/_css-loader@3.4.0@css-loader/dist/cjs.js!./src/App.css":
-/*!*****************************************************************************!*\
-  !*** ./node_modules/_css-loader@3.4.0@css-loader/dist/cjs.js!./src/App.css ***!
-  \*****************************************************************************/
+/***/ "./node_modules/_css-loader@3.4.0@css-loader/dist/cjs.js?!./src/App.css":
+/*!***************************************************************************************!*\
+  !*** ./node_modules/_css-loader@3.4.0@css-loader/dist/cjs.js??ref--5-1!./src/App.css ***!
+  \***************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("// Imports\nvar ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../node_modules/_css-loader@3.4.0@css-loader/dist/runtime/api.js */ \"./node_modules/_css-loader@3.4.0@css-loader/dist/runtime/api.js\");\nexports = ___CSS_LOADER_API_IMPORT___(false);\n// Module\nexports.push([module.i, \"\\nbody {\\n  color: red\\n}\\n\", \"\"]);\n// Exports\nmodule.exports = exports;\n\n\n//# sourceURL=webpack:///./src/App.css?./node_modules/_css-loader@3.4.0@css-loader/dist/cjs.js");
+eval("// Imports\nvar ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../node_modules/_css-loader@3.4.0@css-loader/dist/runtime/api.js */ \"./node_modules/_css-loader@3.4.0@css-loader/dist/runtime/api.js\");\nexports = ___CSS_LOADER_API_IMPORT___(false);\n// Module\nexports.push([module.i, \"\\nbody {\\n  color: red\\n}\\n\", \"\"]);\n// Exports\nmodule.exports = exports;\n\n\n//# sourceURL=webpack:///./src/App.css?./node_modules/_css-loader@3.4.0@css-loader/dist/cjs.js??ref--5-1");
 
 /***/ }),
 
@@ -958,7 +958,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /*!***************************************************************************************!*\
   !*** ./node_modules/_react-router-dom@5.1.2@react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************************************/
-/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, __RouterContext, generatePath, matchPath, useHistory, useLocation, useParams, useRouteMatch, withRouter */
+/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, __RouterContext, generatePath, matchPath, useHistory, useLocation, useParams, useRouteMatch, withRouter, BrowserRouter, HashRouter, Link, NavLink */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1187,7 +1187,7 @@ eval("module.exports = function (originalModule) {\n  if (!originalModule.webpac
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var content = __webpack_require__(/*! !../node_modules/_css-loader@3.4.0@css-loader/dist/cjs.js!./App.css */ \"./node_modules/_css-loader@3.4.0@css-loader/dist/cjs.js!./src/App.css\");\ncontent = content.__esModule ? content.default : content;\n\nif (typeof content === 'string') {\n  content = [[module.i, content, '']];\n}\n\nvar options = {}\n\noptions.insert = \"head\";\noptions.singleton = false;\n\nvar update = __webpack_require__(/*! ../node_modules/_style-loader@1.0.2@style-loader/dist/runtime/injectStylesIntoStyleTag.js */ \"./node_modules/_style-loader@1.0.2@style-loader/dist/runtime/injectStylesIntoStyleTag.js\")(content, options);\n\nif (content.locals) {\n  module.exports = content.locals;\n}\n\n\n//# sourceURL=webpack:///./src/App.css?");
+eval("var content = __webpack_require__(/*! !../node_modules/_css-loader@3.4.0@css-loader/dist/cjs.js??ref--5-1!./App.css */ \"./node_modules/_css-loader@3.4.0@css-loader/dist/cjs.js?!./src/App.css\");\ncontent = content.__esModule ? content.default : content;\n\nif (typeof content === 'string') {\n  content = [[module.i, content, '']];\n}\n\nvar options = {}\n\noptions.insert = \"head\";\noptions.singleton = false;\n\nvar update = __webpack_require__(/*! ../node_modules/_style-loader@1.0.2@style-loader/dist/runtime/injectStylesIntoStyleTag.js */ \"./node_modules/_style-loader@1.0.2@style-loader/dist/runtime/injectStylesIntoStyleTag.js\")(content, options);\n\nif (content.locals) {\n  module.exports = content.locals;\n}\n\n\n//# sourceURL=webpack:///./src/App.css?");
 
 /***/ }),
 
