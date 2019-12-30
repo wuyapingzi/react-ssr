@@ -86,14 +86,14 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./node_modules/_css-loader@3.4.0@css-loader/dist/cjs.js?!./src/App.css":
-/*!***************************************************************************************!*\
-  !*** ./node_modules/_css-loader@3.4.0@css-loader/dist/cjs.js??ref--5-1!./src/App.css ***!
-  \***************************************************************************************/
+/***/ "./node_modules/_css-loader@3.4.0@css-loader/dist/cjs.js!./src/App.css":
+/*!*****************************************************************************!*\
+  !*** ./node_modules/_css-loader@3.4.0@css-loader/dist/cjs.js!./src/App.css ***!
+  \*****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("// Imports\nvar ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../node_modules/_css-loader@3.4.0@css-loader/dist/runtime/api.js */ \"./node_modules/_css-loader@3.4.0@css-loader/dist/runtime/api.js\");\nexports = ___CSS_LOADER_API_IMPORT___(false);\n// Module\nexports.push([module.i, \"\\nbody {\\n  color: red\\n}\\n\", \"\"]);\n// Exports\nmodule.exports = exports;\n\n\n//# sourceURL=webpack:///./src/App.css?./node_modules/_css-loader@3.4.0@css-loader/dist/cjs.js??ref--5-1");
+eval("// Imports\nvar ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../node_modules/_css-loader@3.4.0@css-loader/dist/runtime/api.js */ \"./node_modules/_css-loader@3.4.0@css-loader/dist/runtime/api.js\");\nexports = ___CSS_LOADER_API_IMPORT___(false);\n// Module\nexports.push([module.i, \"\\nbody {\\n  color: red\\n}\\n\", \"\"]);\n// Exports\nmodule.exports = exports;\n\n\n//# sourceURL=webpack:///./src/App.css?./node_modules/_css-loader@3.4.0@css-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -140,7 +140,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var reac
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("\n    var refs = 0;\n    var css = __webpack_require__(/*! !../node_modules/_css-loader@3.4.0@css-loader/dist/cjs.js??ref--5-1!./App.css */ \"./node_modules/_css-loader@3.4.0@css-loader/dist/cjs.js?!./src/App.css\");\n    var insertCss = __webpack_require__(/*! ../node_modules/_isomorphic-style-loader@5.1.0@isomorphic-style-loader/insertCss.js */ \"./node_modules/_isomorphic-style-loader@5.1.0@isomorphic-style-loader/insertCss.js\");\n    var content = typeof css === 'string' ? [[module.i, css, '']] : css;\n\n    exports = module.exports = css.locals || {};\n    exports._getContent = function() { return content; };\n    exports._getCss = function() { return '' + css; };\n    exports._insertCss = function(options) { return insertCss(content, options) };\n\n    // Hot Module Replacement\n    // https://webpack.github.io/docs/hot-module-replacement\n    // Only activated in browser context\n    if (false) { var removeCss; }\n  \n\n//# sourceURL=webpack:///./src/App.css?");
+eval("\n    var refs = 0;\n    var css = __webpack_require__(/*! !../node_modules/_css-loader@3.4.0@css-loader/dist/cjs.js!./App.css */ \"./node_modules/_css-loader@3.4.0@css-loader/dist/cjs.js!./src/App.css\");\n    var insertCss = __webpack_require__(/*! ../node_modules/_isomorphic-style-loader@5.1.0@isomorphic-style-loader/insertCss.js */ \"./node_modules/_isomorphic-style-loader@5.1.0@isomorphic-style-loader/insertCss.js\");\n    var content = typeof css === 'string' ? [[module.i, css, '']] : css;\n\n    exports = module.exports = css.locals || {};\n    exports._getContent = function() { return content; };\n    exports._getCss = function() { return '' + css; };\n    exports._insertCss = function(options) { return insertCss(content, options) };\n\n    // Hot Module Replacement\n    // https://webpack.github.io/docs/hot-module-replacement\n    // Only activated in browser context\n    if (false) { var removeCss; }\n  \n\n//# sourceURL=webpack:///./src/App.css?");
 
 /***/ }),
 
