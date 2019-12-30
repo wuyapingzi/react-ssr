@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDom from 'react-dom'
-import { BrowserRouter, Route } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { Provider } from 'react-redux'
 
 import Routes from '../src/App.js'
@@ -13,12 +13,20 @@ const Page = (
     {/* 客户端使用 BrowserRouter */}
     <BrowserRouter>
       <Header />
-      {Routes.map((route) => (
-        <Route {...route}></Route>
-      ))}
+      <Switch>
+        {Routes.map((route) => (
+          <Route {...route}></Route>
+        ))}
+      </Switch>
     </BrowserRouter>
   </Provider>
 )
 
-// 将页面注入rout dom节点中
-ReactDom.hydrate(Page, document.getElementById('root'))
+if (window.__context) {
+  // 将页面注入rout dom节点中
+  ReactDom.hydrate(Page, document.getElementById('root'))
+} else {
+  // 将页面注入rout dom节点中
+  ReactDom.render(Page, document.getElementById('root'))
+}
+

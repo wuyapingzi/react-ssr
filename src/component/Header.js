@@ -6,7 +6,9 @@ export default () => {
     <div>
       <Link to='/'>首页 |</Link>
       <Link to='/about'>关于 |</Link>
-      <Link to='/user'>用户 </Link>
+      <Link to='/user'>用户 |</Link>
+      <Link to='/login'>登录 |</Link>
+      <Link to='/dfsfsadf'>不存在 </Link>
     </div>
   )
 }

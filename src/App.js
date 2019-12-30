@@ -8,8 +8,10 @@ import { Route } from 'react-router-dom'
 import Index from './container/index'
 import About from './container/about'
 import User from './container/user'
+import Notfound from './container/notfound'
+import Login from './container/login'
 
-import './App.css'
+// import './App.css'
 
 // export default (
 //   <div>
@@ -35,5 +37,15 @@ export default [
     component: User,
     exact: true,
     key: 'user'
+  },
+  {
+    path: '/login',
+    component: Login,
+    key: 'login',
+    exact: true
+  },
+  {
+    component: Notfound,
+    key: 'not-found'
   }
 ]

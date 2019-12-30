@@ -2,10 +2,12 @@
 import React from 'react'
 import { renderToString } from 'react-dom/server'
 import express from 'express'
-import { StaticRouter, matchPath, Route } from 'react-router-dom'
+import { StaticRouter, matchPath, Route, Switch } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import chalk from 'chalk'
 import proxy from 'http-proxy-middleware'
+import path from 'path'
+import fs from 'fs'
 
 import Routes from '../src/App.js'
 import { getServerStore } from '../src/store/store'
@@ -15,15 +17,28 @@ const app = express()
 app.use(express.static('public')) // 设置加载静态资源的目录为public
 // 使用http-proxy-middleware 插件 解决跨域
 // 客户端来的api开头的请求
-app.use('/api', proxy({
-  target: 'http://localhost:9090',
-  changeOrigin: true
-}))
+app.use(
+  '/api',
+  proxy({
+    target: 'http://localhost:9090',
+    changeOrigin: true
+  })
+)
 
 const store = getServerStore()
 
+function csrRender(res) {
+  // 读取csr文件 返回
+  const filename = path.resolve(process.cwd(), 'public/index.csr.html')
+  const html = fs.readFileSync(filename, 'utf-8')
+  return res.send(html)
+}
 // 监听所有路由，这样不会在浏览器报404错误
 app.get('*', (req, res) => {
+  if (req.query._mode === 'csr') {
+    console.log('url参数开启csr')
+    return csrRender(res)
+  }
   // 把react组件解析成html
   // 获取路由渲染的组件，进而获取组件的loadData方案获取数据
   // 存储网络请求
@@ -53,17 +68,34 @@ app.get('*', (req, res) => {
   // 等待所有的网络请求结束后再渲染
   Promise.all(promises)
     .then(() => {
+      // This context object contains the results of the render
+      let context = {
+        css: [] // 将css放入context中
+      }
       const content = renderToString(
         // 使用Provider向页面中注入store
         <Provider store={store}>
-          <StaticRouter location={req.url}>
+          <StaticRouter location={req.url} context={context}>
             <Header />
-            {Routes.map((route) => (
-              <Route {...route}></Route>
-            ))}
+            <Switch>
+              {Routes.map((route) => (
+                <Route {...route}></Route>
+              ))}
+            </Switch>
           </StaticRouter>
         </Provider>
       )
+
+      console.log('context====', context)
+      if (context.statuscode) {
+        // 做状态切换和页面跳转
+        res.status(context.statuscode)
+      }
+      if (context.action === 'REPLACE') {
+        res.redirect(301, context.url)
+      }
+      const css = context.css.join('\n')
+      console.log('css------33',css)
       // 字符串模版
       res.send(`
   <html>
@@ -71,6 +103,9 @@ app.get('*', (req, res) => {
       <meta charset="utf-8" />
       <title>react ssr</title>
       <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+      <style>
+        ${css}
+      </style>
     </head>
     <body>
       <div id="root">${content}</div>
